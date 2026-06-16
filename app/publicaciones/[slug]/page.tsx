@@ -67,9 +67,6 @@ export default async function PostPage({ params }: Props) {
         {/* Hero */}
         <header className="mb-9">
           {/* Chip */}
-          <span className="mb-3.5 inline-block rounded-[5px] border border-brand/20 bg-brand-soft px-2 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-[.05em] text-brand-text">
-            {chip}
-          </span>
 
           {/* Title */}
           <h1 className="mb-3.5 max-w-[760px] text-[clamp(1.6rem,3.5vw,2.2rem)] font-extrabold leading-[1.22] tracking-[-0.04em] text-balance text-ink">
