@@ -2,7 +2,7 @@
 title: "Anexo — Manual de Hardening de Ubuntu"
 date: "2026-06-15"
 description: "Guía rápida de endurecimiento para Ubuntu Server/Desktop 22.04 / 24.04 LTS: 11 pasos accionables con checklist, comandos y evidencias."
-author: "anthpaul"
+author: "Moreira Mantuano Jhon Jairo"
 tags: ["hardening", "manual", "ubuntu", "checklist"]
 ---
 

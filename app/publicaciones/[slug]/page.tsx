@@ -43,13 +43,12 @@ export default async function PostPage({ params }: Props) {
   const headings = extractHeadings(post.content);
   const seriesPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 5);
 
-  const initials = (post.author ?? "A")
+  const chip = post.tags[0] ?? "ubuntu";
+  const initials = String(post.author || "A")
     .split(/\s+/)
     .map((w) => w[0].toUpperCase())
     .join("")
     .slice(0, 2);
-
-  const chip = post.tags[0] ?? "ubuntu";
 
   return (
     <>
@@ -80,6 +79,14 @@ export default async function PostPage({ params }: Props) {
 
           {/* Meta row */}
           <div className="flex flex-wrap items-center gap-3">
+            {post.author && (                                                        
+                  <div className="flex items-center gap-2">                       
+                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand font-brand text-[11px] font-bold text-white">
+                       {initials}
+                     </span>                                                              
+                     <span className="text-[14px] font-medium text-ink">{post.author}</span>                                                                            
+                    </div>                                                                 
+                 )}    
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="font-mono text-[12px] text-subtle">
                 {formatDate(post.date)}

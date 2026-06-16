@@ -2,7 +2,7 @@
 title: "Publicación #1 — Fundamentos de la seguridad en Ubuntu"
 date: "2026-06-01"
 description: "Arquitectura, modelo de permisos y mecanismos nativos de protección: kernel, POSIX, AppArmor, sandboxing, LUKS y PAM."
-author: "anthpaul"
+author: "Anthony Paul Delgado Pigave"
 tags: ["security", "OS", "ubuntu", "architecture"]
 ---
 

@@ -2,7 +2,7 @@
 title: "Publicación #2 — Vulnerabilidades y análisis de riesgos en Ubuntu"
 date: "2026-06-04"
 description: "Fallos frecuentes, CVEs documentados (PwnKit, Dirty Pipe, Baron Samedit) y una metodología práctica de evaluación de riesgos."
-author: "anthpaul"
+author: "José Alejandro"
 tags: ["security", "vulnerabilities", "CVE", "ubuntu"]
 ---
 

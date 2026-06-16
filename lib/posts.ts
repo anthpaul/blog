@@ -5,6 +5,7 @@ import { headingSlug, readingTime } from "@/lib/utils";
 
 const contentDir = path.join(process.cwd(), "content");
 
+
 export interface PostMeta {
   slug: string;
   title: string;
@@ -37,7 +38,7 @@ export function getAllPosts(): PostMeta[] {
         title: data.title ?? slug,
         date: data.date ?? "",
         description: data.description ?? "",
-        author: data.author ?? "",
+        author: data.author ? String(data.author) : "",
         tags: Array.isArray(data.tags) ? data.tags : [],
         readingTime: readingTime(content),
       };

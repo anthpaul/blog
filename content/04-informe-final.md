@@ -2,7 +2,7 @@
 title: "Publicación #4 — Informe Final Integrador: Seguridad en Ubuntu"
 date: "2026-06-12"
 description: "Síntesis del proyecto mensual: arquitectura, riesgos, hardening implementado, resultados medibles y buenas prácticas por perfil de usuario."
-author: "anthpaul"
+author: ["Anthony Paul Delgado Pigave", "Mora Alarcón Claudio Jair", "Moreira Mantuano Jhon Jairo"]
 tags: ["security", "ubuntu", "final", "hardening"]
 ---
 

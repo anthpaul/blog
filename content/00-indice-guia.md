@@ -2,7 +2,7 @@
 title: "Índice y Guía del Blog — Seguridad Informática en Ubuntu"
 date: "2026-05-28"
 description: "Guía de navegación del proyecto: estructura de las 4 publicaciones, criterios de la rúbrica, evidencias requeridas e infografías a producir."
-author: "anthpaul"
+author: "Anthony Paul Delgado Pigave"
 tags: ["security", "ubuntu", "guia", "rubrica"]
 ---
 

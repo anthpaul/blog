@@ -2,7 +2,7 @@
 title: "Publicación #3 — Hardening de Ubuntu: prácticas técnicas paso a paso"
 date: "2026-06-08"
 description: "Firewall UFW, SSH seguro, gestión de usuarios, cifrado con LUKS/GPG, 2FA y auditoría con Lynis: configuración completa de un servidor Ubuntu."
-author: "anthpaul"
+author: "Mora Alarcón Claudio Jair"
 tags: ["security", "hardening", "ubuntu", "ssh", "firewall"]
 ---
 

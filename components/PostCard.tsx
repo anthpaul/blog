@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, User } from "lucide-react";
+import { Clock } from "lucide-react";
 import type { PostMeta } from "@/lib/posts";
 import { formatDate } from "@/lib/utils";
 
@@ -59,6 +59,12 @@ export default function PostCard({
             <Clock size={11} />
             {post.readingTime} min
           </span>
+          {post.author && (
+            <>
+              <span className="text-[12px] text-subtle">·</span>
+              <span className="font-mono text-[12px] text-subtle">{post.author}</span>
+            </>
+          )}
         </div>
       </div>
     </article>
