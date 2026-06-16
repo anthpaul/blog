@@ -10,7 +10,7 @@ export default function PostCard({
   post: PostMeta;
   featured?: boolean;
 }) {
-  const chip = post.tags[0] ?? "ubuntu";
+  const chip = post.tags[1] ?? "ubuntu";
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-[14px] border border-border bg-surface transition-all duration-[180ms] hover:-translate-y-0.5 hover:border-brand hover:shadow-[0_4px_12px_-4px_rgba(233,84,32,.18)]">

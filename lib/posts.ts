@@ -45,7 +45,7 @@ export function getAllPosts(): PostMeta[] {
         cover: data.cover ?? undefined,
       };
     })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+    .sort((a, b) => (a.date > b.date ? 1 : -1));
 }
 
 export function getPost(slug: string): Post | null {
