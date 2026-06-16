@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ChevronLeft } from "lucide-react";
 import { getPost, getAllSlugs, getAllPosts, extractHeadings } from "@/lib/posts";
@@ -106,14 +107,6 @@ export default async function PostPage({ params }: Props) {
                 </span>
               ))}
             </div>
-          </div>
-
-          {/* Hero image placeholder */}
-          <div
-            className="img-stripe mt-7 flex h-[220px] items-center justify-center rounded-[12px] border border-border font-mono text-[12px] tracking-wider text-subtle"
-            aria-hidden="true"
-          >
-            [ imagen destacada ]
           </div>
         </header>
 

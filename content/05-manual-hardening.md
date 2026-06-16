@@ -4,6 +4,7 @@ date: "2026-06-15"
 description: "Guía rápida de endurecimiento para Ubuntu Server/Desktop 22.04 / 24.04 LTS: 11 pasos accionables con checklist, comandos y evidencias."
 author: "Moreira Mantuano Jhon Jairo"
 tags: ["hardening", "manual", "ubuntu", "checklist"]
+cover: "/images-manual/principal.png"
 ---
 
 > *Guía rápida de endurecimiento para Ubuntu Server/Desktop 22.04 / 24.04 LTS*
@@ -38,7 +39,7 @@ sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure --priority=low unattended-upgrades
 ```
 
-> [CAPTURA] *Evidencia:* salida de `apt upgrade` + `systemctl status unattended-upgrades`.
+![Evidencia Paso 1 — Actualizaciones](/images-manual/actualizaciones.png)
 
 ---
 
@@ -52,7 +53,7 @@ sudo ufw enable
 sudo ufw status verbose
 ```
 
-> [CAPTURA] *Evidencia:* `ufw status verbose`.
+![Evidencia Paso 2 — Firewall UFW](/images-manual/firewall.png)
 
 > [AVISO] **Orden crítico:** permite SSH **antes** de `ufw enable` o perderás la conexión remota.
 
@@ -82,7 +83,7 @@ ssh-keygen -t ed25519
 ssh-copy-id anthony@IP_SERVIDOR
 ```
 
-> [CAPTURA] *Evidencia:* `sshd_config` editado + conexión exitosa por llave.
+![Evidencia Paso 3 — Hardening SSH](/images-manual/hardening.png)
 
 > [AVISO] Prueba la conexión por llave en **otra terminal** antes de cerrar la sesión actual y antes de poner `PasswordAuthentication no`.
 
@@ -96,7 +97,7 @@ sudo systemctl enable --now fail2ban
 sudo fail2ban-client status sshd
 ```
 
-> [CAPTURA] *Evidencia:* `fail2ban-client status sshd` (idealmente con alguna IP baneada tras intentos fallidos).
+![Evidencia Paso 4 — fail2ban](/images-manual/fail2ban.png)
 
 ---
 
@@ -109,7 +110,7 @@ getent group sudo                # auditar quién es admin
 sudo usermod -L cuenta_inactiva  # bloquear cuentas sin uso
 ```
 
-> [CAPTURA] *Evidencia:* creación de usuario y `getent group sudo`.
+![Evidencia Paso 5 — Usuarios mínimo privilegio](/images-manual/usuarios-minimo.png)
 
 ---
 
@@ -137,7 +138,7 @@ PASS_MIN_DAYS 1
 PASS_WARN_AGE 7
 ```
 
-> [CAPTURA] *Evidencia:* archivos editados + intento de poner una contraseña débil (rechazada).
+![Evidencia Paso 6 — Política de contraseñas](/images-manual/politica-contrasenia.png)
 
 ---
 
@@ -150,7 +151,7 @@ google-authenticator
 
 Habilitar en `/etc/pam.d/sshd` y `KbdInteractiveAuthentication yes` en `sshd_config`.
 
-> [CAPTURA] *Evidencia:* código QR generado + login pidiendo el código TOTP.
+![Evidencia Paso 7 — 2FA](/images-manual/2fa.png)
 
 ---
 
@@ -168,7 +169,7 @@ gpg -c archivo_confidencial.pdf
 lsblk           # verificar tipo 'crypt'
 ```
 
-> [CAPTURA] *Evidencia:* `lsblk` mostrando `crypt` y/o archivo `.gpg` generado.
+![Evidencia Paso 8 — Cifrado](/images-manual/cifrado.png)
 
 ---
 
@@ -179,7 +180,7 @@ find / -perm -4000 -type f 2>/dev/null    # binarios SUID
 find / -perm -0777 -type f 2>/dev/null    # permisos 777 peligrosos
 ```
 
-> [CAPTURA] *Evidencia:* listado de binarios SUID (relacionar con PwnKit/pkexec).
+![Evidencia Paso 9 — Revisión SUID](/images-manual/revision-suid.png)
 
 ---
 
@@ -190,7 +191,7 @@ sudo apt install lynis -y
 sudo lynis audit system
 ```
 
-> [CAPTURA] *Evidencia:* *Hardening index* y sección de *Suggestions*. Toma una captura **antes** y **después** del hardening para mostrar la mejora.
+![Evidencia Paso 10 — Auditoría Lynis](/images-manual/audit-lynis.png)
 
 ---
 
@@ -202,7 +203,7 @@ sudo systemctl enable --now auditd
 sudo grep "Failed password" /var/log/auth.log
 ```
 
-> [CAPTURA] *Evidencia:* `auditd` activo + registro de intentos fallidos.
+![Evidencia Paso 11 — Monitoreo y logs](/images-manual/monitoreo.png)
 
 ---
 
