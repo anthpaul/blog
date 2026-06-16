@@ -183,7 +183,11 @@ const components: Components = {
   table({ children }) {
     const items = parseChecklist(children);
     if (items) return <ChecklistTable items={items} />;
-    return <table className="w-full border-collapse">{children}</table>;
+    return (
+      <div className="my-5 overflow-x-auto rounded-lg">
+        <table className="min-w-[540px] w-full border-collapse">{children}</table>
+      </div>
+    );
   },
 };
 
