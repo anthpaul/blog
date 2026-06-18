@@ -43,7 +43,7 @@ Un punto **clave** que repetiremos en todo el blog: muchas brechas reales **no**
 
 **Solución del fabricante:** Canonical publicó el parche en `policykit-1` (versión `0.105-26ubuntu1.2` en Ubuntu 20.04). El parche agrega una verificación de `argc < 1`. **Mitigación temporal** si no se podía parchear: quitar el bit SUID con `chmod 0755 /usr/bin/pkexec`.
 
-> [CAPTURA] **CAPTURA SUGERIDA:** `ls -l /usr/bin/pkexec` mostrando el bit `s` (SUID) y la versión parcheada con `apt list --installed | grep polkit`.
+
 
 ### CVE-2022-0847 — "Dirty Pipe" (escritura arbitraria en el kernel)
 
@@ -93,7 +93,6 @@ Para evaluar riesgos usamos una metodología básica de cuatro variables: **acti
 | R6 | Red | Intercepción de tráfico | Servicios sin cifrar (HTTP, FTP) | Medio | Baja | **Bajo** |
 | R7 | Logs | Borrado de evidencia | Logs sin protección/centralización | Medio | Media | **Medio** |
 
-> [CAPTURA] **CAPTURA SUGERIDA:** convierte este cuadro en una **infografía** (Canva/draw.io) con un código de colores (verde-amarillo-rojo). Es uno de los productos obligatorios de la semana.
 
 ### Interpretación
 

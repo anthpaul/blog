@@ -26,9 +26,6 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center gap-2.5 no-underline">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand font-brand text-base font-bold text-white">
-            U
-          </span>
           <span className="font-brand text-[15px] font-bold tracking-tight text-ink">
             SecUbuntU
             <span className="font-sans text-[12px] font-normal text-subtle"> / blog</span>

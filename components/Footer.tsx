@@ -39,9 +39,6 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 flex flex-col gap-3 sm:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full bg-brand font-brand text-[15px] font-bold text-white">
-                U
-              </span>
               <span className="font-brand text-[15px] font-bold text-ink">SecUbuntU</span>
             </div>
             <p className="max-w-[240px] text-[13px] leading-relaxed text-muted">

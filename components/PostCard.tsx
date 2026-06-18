@@ -14,15 +14,6 @@ export default function PostCard({
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-[14px] border border-border bg-surface transition-all duration-[180ms] hover:-translate-y-0.5 hover:border-brand hover:shadow-[0_4px_12px_-4px_rgba(233,84,32,.18)]">
-      {/* Image placeholder */}
-      <div
-        aria-hidden="true"
-        className={`img-stripe flex items-center justify-center border-b border-border font-mono text-[12px] tracking-wider text-subtle ${
-          featured ? "h-48" : "h-32"
-        }`}
-      >
-        [ imagen ]
-      </div>
 
       <div className="flex flex-1 flex-col gap-2.5 p-5">
         {/* Category chip */}

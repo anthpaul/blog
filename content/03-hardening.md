@@ -37,7 +37,6 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 Esto asegura que, aunque el administrador olvide actualizar, los parches críticos se apliquen solos.
 
-> [CAPTURA] **CAPTURA SUGERIDA:** salida de `sudo apt update && sudo apt upgrade` y de `systemctl status unattended-upgrades`.
 
 ---
 
@@ -65,8 +64,6 @@ sudo ufw status verbose
 ```
 
 > [TIP] En distribuciones con `firewalld` (CentOS/RHEL) el equivalente sería `firewall-cmd --add-service=ssh --permanent`. Ubuntu usa UFW por defecto.
-
-> [CAPTURA] **CAPTURA SUGERIDA:** salida de `sudo ufw status verbose` mostrando las reglas activas.
 
 ---
 
@@ -114,7 +111,6 @@ ssh-copy-id -p 2222 anthony@IP_DEL_SERVIDOR
 
 A partir de ahí, el acceso requiere la **llave privada**, que es prácticamente imposible de adivinar por fuerza bruta, a diferencia de una contraseña.
 
-> [CAPTURA] **CAPTURA SUGERIDA:** el archivo `sshd_config` con `PermitRootLogin no` y `PasswordAuthentication no`, más una conexión exitosa por llave.
 
 ### Protección extra: fail2ban
 
@@ -189,7 +185,6 @@ find / -perm -0777 -type f 2>/dev/null
 find / -perm -4000 -type f 2>/dev/null
 ```
 
-> [CAPTURA] **CAPTURA SUGERIDA:** creación de un usuario, asignación al grupo sudo y salida de `find / -perm -4000` listando binarios SUID.
 
 ---
 
@@ -233,7 +228,6 @@ gpg documento_confidencial.pdf.gpg     # descifra
 - Usar **SSH** en lugar de Telnet, y **HTTPS/SFTP** en lugar de HTTP/FTP.
 - Para acceso remoto seguro, montar una **VPN** (ej. WireGuard).
 
-> [CAPTURA] **CAPTURA SUGERIDA:** un archivo cifrado con `gpg -c` (mostrar el `.gpg` resultante) y/o el estado del disco cifrado con `lsblk` mostrando el tipo `crypt`.
 
 ---
 
@@ -247,8 +241,6 @@ sudo lynis audit system
 ```
 
 Al final muestra un *Hardening index* (0–100) y una lista de sugerencias. Es excelente para **medir el antes y el después** del hardening y demostrar el avance en el blog.
-
-> [CAPTURA] **CAPTURA SUGERIDA:** el *Hardening index* y la sección de *Warnings/Suggestions* de Lynis.
 
 ---
 
@@ -273,7 +265,6 @@ Recordemos que cada uso de `sudo` queda registrado: revisar `/var/log/auth.log` 
 
 El hardening de Ubuntu se construye sobre acciones concretas: **actualizar siempre**, **cerrar el firewall** dejando solo lo necesario, **blindar SSH** con llaves y 2FA, **aplicar mínimo privilegio** en usuarios y permisos, **cifrar** disco y comunicaciones, y **auditar** con Lynis. Ninguna medida por sí sola es suficiente; es la suma de todas la que transforma una instalación por defecto en un sistema resistente. En la entrada final integraremos todo esto en un informe con buenas prácticas por perfil de usuario.
 
-> El detalle completo de cada paso, con la checklist final, está en el **Manual de Hardening** (anexo del blog).
 
 ---
 

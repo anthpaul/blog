@@ -26,8 +26,6 @@ La seguridad en Ubuntu se organiza en **capas concéntricas**, donde cada capa p
 | **Kernel (núcleo Linux)** | Syscalls, namespaces, cgroups | Aislamiento de procesos |
 | **Hardware + arranque seguro** | UEFI / GRUB | Secure Boot, cifrado de disco |
 
-> [CAPTURA] **CAPTURA SUGERIDA:** salida de `uname -a` y `lsb_release -a` mostrando la versión del kernel y de Ubuntu.
-
 ### El kernel: el corazón del sistema
 
 El **kernel** es el núcleo del sistema operativo. Es el único componente que se ejecuta en *modo privilegiado* (ring 0) y controla el acceso directo al hardware: CPU, memoria, discos y red. Toda aplicación que necesite un recurso del sistema debe pedírselo al kernel mediante **llamadas al sistema (syscalls)**. Esta separación entre *modo usuario* y *modo kernel* es la primera barrera de seguridad: un programa común nunca toca el hardware directamente, sino que pasa por el filtro del kernel.
@@ -54,7 +52,6 @@ Cada archivo y directorio tiene un propietario, un grupo y un conjunto de permis
 
 Estos permisos se representan también en **notación octal** (ej. `755`, `644`) y se modifican con `chmod`, mientras que el propietario se cambia con `chown`. Este modelo se conoce como **DAC (Control de Acceso Discrecional)**: el dueño del archivo decide quién accede.
 
-> [CAPTURA] **CAPTURA SUGERIDA:** `ls -l` de un directorio + un `chmod 600 archivo.txt` y su efecto.
 
 ### sudo: privilegios bajo control
 
@@ -69,11 +66,7 @@ La configuración de quién puede usar `sudo` vive en el archivo `/etc/sudoers` 
 
 Mientras el modelo POSIX es *discrecional*, Ubuntu añade una capa de **Control de Acceso Obligatorio (MAC)** mediante **AppArmor**, activo por defecto. AppArmor define **perfiles** que restringen qué archivos y capacidades puede usar cada programa, **incluso si se ejecuta como root**. Por ejemplo, aunque un atacante comprometa el servidor web, el perfil de AppArmor puede impedir que ese proceso lea `/etc/shadow`. Su comando de estado es `aa-status`.
 
-> Nota: otras distribuciones (Red Hat, Fedora) usan **SELinux** en lugar de AppArmor. Ambos cumplen el mismo rol de MAC, pero AppArmor es más sencillo de administrar y es el elegido por Ubuntu.
 
-> [CAPTURA] **CAPTURA SUGERIDA:** salida de `sudo aa-status` mostrando perfiles cargados.
-
----
 
 ## 3. Sandboxing de aplicaciones
 
@@ -96,8 +89,6 @@ La autenticación de usuarios en Ubuntu se gestiona con **PAM (Pluggable Authent
 ## Conclusión
 
 La seguridad de Ubuntu no depende de un solo mecanismo, sino de la **combinación de varias capas**: la separación kernel/usuario, el modelo de permisos POSIX, el uso disciplinado de `sudo`, el control obligatorio de AppArmor, el sandboxing de aplicaciones y el cifrado con LUKS. Entender estos fundamentos es indispensable antes de analizar vulnerabilidades y aplicar técnicas de hardening, que abordaremos en las próximas entradas del blog.
-
-> **Conceptos clave repasados:** kernel, syscalls, permisos POSIX, DAC vs MAC, AppArmor, sandboxing, LUKS, PAM, hashing de contraseñas.
 
 ---
 
