@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Salida del comando: cifrado de disco con LUKS</title>
+  <desc id="d">Salida simulada de cryptsetup luksFormat, luksOpen y verificación con lsblk -f.</desc>
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="720" height="380" fill="#fcefe9"/>
+  <rect x="20" y="20" width="680" height="340" rx="10" fill="#300A24" filter="url(#sh)"/>
+  <g font-size="13">
+    <text x="40" y="56"><tspan fill="#5FD75F" font-weight="700">root@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff"># </tspan><tspan fill="#ffffff">cryptsetup luksFormat /dev/sdb1</tspan></text>
+    <text x="40" y="76" fill="#FF6B6B">WARNING!</text>
+    <text x="40" y="92" fill="#FF6B6B">========</text>
+    <text x="40" y="108" fill="#e6e6e6">This will overwrite data on /dev/sdb1 irrevocably.</text>
+    <text x="40" y="124" fill="#e6e6e6">Are you sure? (Type 'yes' in capital letters): <tspan fill="#5FD75F">YES</tspan></text>
+    <text x="40" y="140" fill="#e6e6e6">Enter passphrase for /dev/sdb1: <tspan fill="#9a8b94">●●●●●●●●●●●●</tspan></text>
+    <text x="40" y="156" fill="#e6e6e6">Verify passphrase: <tspan fill="#9a8b94">●●●●●●●●●●●●</tspan></text>
+    <text x="40" y="172" fill="#5FD75F">Key slot 0 created.</text>
+    <text x="40" y="200"><tspan fill="#5FD75F" font-weight="700">root@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff"># </tspan><tspan fill="#ffffff">cryptsetup luksOpen /dev/sdb1 datos_cifrados</tspan></text>
+    <text x="40" y="220" fill="#e6e6e6">Enter passphrase for /dev/sdb1: <tspan fill="#9a8b94">●●●●●●●●●●●●</tspan></text>
+    <text x="40" y="248"><tspan fill="#5FD75F" font-weight="700">root@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff"># </tspan><tspan fill="#ffffff">lsblk -f</tspan></text>
+    <text x="40" y="268" fill="#e6e6e6">NAME                  FSTYPE      LABEL    MOUNTPOINT</text>
+    <text x="40" y="284" fill="#e6e6e6">sda</text>
+    <text x="40" y="300" fill="#e6e6e6">├─sda1                <tspan fill="#F7C97E">vfat</tspan>        EFI      /boot/efi</text>
+    <text x="40" y="316" fill="#e6e6e6">└─sda2                <tspan fill="#F7C97E">ext4</tspan>        root     /</text>
+    <text x="40" y="332" fill="#e6e6e6">sdb</text>
+    <text x="40" y="348" fill="#e6e6e6">└─sdb1                <tspan fill="#E95420" font-weight="700">crypto_LUKS</tspan>   <tspan fill="#9a8b94">└── datos_cifrados (ext4, mounted /mnt/datos)</tspan></text>
+  </g>
+</svg>

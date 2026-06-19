@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Captura: revisión de binarios SUID</title>
+  <desc id="d">Terminal Ubuntu GNOME mostrando find / -perm -4000 listando binarios SUID del sistema.</desc>
+  <defs>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".22"/></filter>
+    <clipPath id="rc"><rect x="20" y="20" width="680" height="360" rx="10"/></clipPath>
+  </defs>
+  <rect width="720" height="400" fill="#fcefe9"/>
+  <g filter="url(#sh)" clip-path="url(#rc)">
+    <rect x="20" y="20" width="680" height="360" fill="#300A24"/>
+    <rect x="20" y="20" width="680" height="38" fill="#2C001E"/>
+    <text x="360" y="44" text-anchor="middle" font-size="12" fill="#e6e6e6">ubuntu@ubuntu: ~</text>
+    <g transform="translate(620,29)" fill="none" stroke="#cfcfd6" stroke-width="1.4">
+      <circle cx="0" cy="10" r="9" fill="#3c0e2c"/><line x1="-4" y1="10" x2="4" y2="10"/>
+      <circle cx="24" cy="10" r="9" fill="#3c0e2c"/><rect x="20" y="6" width="8" height="8"/>
+      <circle cx="48" cy="10" r="9" fill="#3c0e2c"/><line x1="44" y1="6" x2="52" y2="14"/><line x1="52" y1="6" x2="44" y2="14"/>
+    </g>
+    <rect x="20" y="58" width="680" height="28" fill="#3c0e2c"/>
+    <rect x="32" y="60" width="280" height="26" rx="3" fill="#300A24"/>
+    <text x="44" y="78" font-size="11" fill="#e6e6e6">ubuntu@ubuntu: ~ — find SUID</text>
+    <text x="298" y="78" font-size="11" fill="#9a8b94">×</text>
+  </g>
+  <g font-size="13" clip-path="url(#rc)">
+    <text x="38" y="112"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo find / -perm -4000 -type f 2&gt;/dev/null</tspan></text>
+    <text x="38" y="134" fill="#e6e6e6">/usr/bin/su</text>
+    <text x="38" y="150" fill="#e6e6e6">/usr/bin/sudo</text>
+    <text x="38" y="166" fill="#e6e6e6">/usr/bin/mount</text>
+    <text x="38" y="182" fill="#e6e6e6">/usr/bin/umount</text>
+    <text x="38" y="198" fill="#e6e6e6">/usr/bin/passwd</text>
+    <text x="38" y="214" fill="#e6e6e6">/usr/bin/chsh</text>
+    <text x="38" y="230" fill="#e6e6e6">/usr/bin/chfn</text>
+    <text x="38" y="246" fill="#e6e6e6">/usr/bin/newgrp</text>
+    <text x="38" y="262" fill="#e6e6e6">/usr/bin/gpasswd</text>
+    <text x="38" y="278" fill="#e6e6e6">/usr/lib/openssh/ssh-keysign</text>
+    <text x="38" y="294" fill="#e6e6e6">/usr/lib/dbus-1.0/dbus-daemon-launch-helper</text>
+    <text x="38" y="310" fill="#F7C97E">/usr/libexec/polkit-agent-helper-1   <tspan fill="#9a8b94"># revisar tras CVE-2021-4034</tspan></text>
+    <text x="38" y="336"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo find / -perm -0777 -type f 2&gt;/dev/null | wc -l</tspan></text>
+    <text x="38" y="356" fill="#5FD75F">0   <tspan fill="#9a8b94"># sin archivos con permisos 777</tspan></text>
+    <text x="38" y="374"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">█</tspan></text>
+  </g>
+</svg>

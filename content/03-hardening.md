@@ -37,6 +37,7 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 Esto asegura que, aunque el administrador olvide actualizar, los parches críticos se apliquen solos.
 
+![Captura real — Salida de sudo apt list --upgradable en Ubuntu](/capturas/actualizaciones.png)
 
 ---
 
@@ -62,6 +63,8 @@ sudo ufw enable
 # Verificar estado y reglas
 sudo ufw status verbose
 ```
+
+![Captura real — UFW activo: sudo ufw allow 80/tcp y sudo ufw status verbose](/capturas/firewall.png)
 
 > [TIP] En distribuciones con `firewalld` (CentOS/RHEL) el equivalente sería `firewall-cmd --add-service=ssh --permanent`. Ubuntu usa UFW por defecto.
 
@@ -100,6 +103,8 @@ Aplicar cambios:
 sudo systemctl restart ssh
 ```
 
+![Captura simulada — sshd_config endurecido, servicio reiniciado y login por llave ed25519](/diagrams/cap-ssh.svg)
+
 ### Autenticación por llave SSH (más segura que contraseña)
 
 En **tu máquina cliente** generas un par de llaves y copias la pública al servidor:
@@ -121,6 +126,8 @@ sudo apt install fail2ban -y
 sudo systemctl enable --now fail2ban
 sudo fail2ban-client status sshd
 ```
+
+![Captura simulada — fail2ban-client status sshd con 3 IPs baneadas](/diagrams/cap-fail2ban.svg)
 
 ---
 
@@ -146,6 +153,8 @@ sudo usermod -L carlos
 # Listar usuarios del sistema
 cut -d: -f1 /etc/passwd
 ```
+
+![Captura simulada — adduser, usermod -aG sudo y listado de /etc/passwd](/diagrams/cap-usuarios.svg)
 
 ### Políticas de contraseñas robustas
 
@@ -173,6 +182,8 @@ PASS_MIN_DAYS   1
 PASS_WARN_AGE   7
 ```
 
+![Captura simulada — pwquality.conf y login.defs con rechazo de contraseña corta](/diagrams/cap-contrasenas.svg)
+
 ### Revisar permisos peligrosos
 
 Buscar archivos con permisos excesivos o SUID inesperados:
@@ -185,6 +196,7 @@ find / -perm -0777 -type f 2>/dev/null
 find / -perm -4000 -type f 2>/dev/null
 ```
 
+![Captura real — Revisión de permisos peligrosos y binarios SUID](/imagenesreales/gestion.png)
 
 ---
 
@@ -198,6 +210,8 @@ google-authenticator
 ```
 
 Luego se habilita en `/etc/pam.d/sshd` y en `sshd_config` (`KbdInteractiveAuthentication yes`). A partir de ahí, además de la llave, se pide un código temporal (TOTP) generado en el móvil. En equipos de escritorio modernos, Ubuntu también admite **biometría** (huella) mediante `fprintd` y el módulo PAM correspondiente.
+
+![Captura real — Configuración de 2FA con google-authenticator](/imagenesreales/auth.png)
 
 ---
 
@@ -228,6 +242,7 @@ gpg documento_confidencial.pdf.gpg     # descifra
 - Usar **SSH** en lugar de Telnet, y **HTTPS/SFTP** en lugar de HTTP/FTP.
 - Para acceso remoto seguro, montar una **VPN** (ej. WireGuard).
 
+![Captura simulada — cryptsetup luksFormat/luksOpen y lsblk mostrando crypto_LUKS](/diagrams/cap-cifrado.svg)
 
 ---
 
@@ -241,6 +256,8 @@ sudo lynis audit system
 ```
 
 Al final muestra un *Hardening index* (0–100) y una lista de sugerencias. Es excelente para **medir el antes y el después** del hardening y demostrar el avance en el blog.
+
+![Captura real — Lynis audit system iniciando el análisis del host Ubuntu](/imagenesreales/audit.png)
 
 ---
 
@@ -258,6 +275,8 @@ sudo systemctl enable --now auditd
 ```
 
 Recordemos que cada uso de `sudo` queda registrado: revisar `/var/log/auth.log` regularmente es parte de una buena higiene de seguridad.
+
+![Captura simulada — auth.log con Failed password, trazas de sudo y auditd activo](/diagrams/cap-monitoreo.svg)
 
 ---
 

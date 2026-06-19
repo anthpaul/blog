@@ -39,8 +39,6 @@ sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure --priority=low unattended-upgrades
 ```
 
-![Evidencia Paso 1 — Actualizaciones](/images-manual/actualizaciones.png)
-
 ---
 
 ## Paso 2 — Firewall UFW
@@ -52,8 +50,6 @@ sudo ufw allow 22/tcp        # ¡antes de activar!
 sudo ufw enable
 sudo ufw status verbose
 ```
-
-![Evidencia Paso 2 — Firewall UFW](/images-manual/firewall.png)
 
 > [AVISO] **Orden crítico:** permite SSH **antes** de `ufw enable` o perderás la conexión remota.
 
@@ -83,8 +79,6 @@ ssh-keygen -t ed25519
 ssh-copy-id anthony@IP_SERVIDOR
 ```
 
-![Evidencia Paso 3 — Hardening SSH](/images-manual/hardening.png)
-
 > [AVISO] Prueba la conexión por llave en **otra terminal** antes de cerrar la sesión actual y antes de poner `PasswordAuthentication no`.
 
 ---
@@ -97,8 +91,6 @@ sudo systemctl enable --now fail2ban
 sudo fail2ban-client status sshd
 ```
 
-![Evidencia Paso 4 — fail2ban](/images-manual/fail2ban.png)
-
 ---
 
 ## Paso 5 — Usuarios y mínimo privilegio
@@ -110,7 +102,6 @@ getent group sudo                # auditar quién es admin
 sudo usermod -L cuenta_inactiva  # bloquear cuentas sin uso
 ```
 
-![Evidencia Paso 5 — Usuarios mínimo privilegio](/images-manual/usuarios-minimo.png)
 
 ---
 
@@ -138,8 +129,6 @@ PASS_MIN_DAYS 1
 PASS_WARN_AGE 7
 ```
 
-![Evidencia Paso 6 — Política de contraseñas](/images-manual/politica-contrasenia.png)
-
 ---
 
 ## Paso 7 — Doble factor (2FA) — opcional
@@ -151,7 +140,6 @@ google-authenticator
 
 Habilitar en `/etc/pam.d/sshd` y `KbdInteractiveAuthentication yes` en `sshd_config`.
 
-![Evidencia Paso 7 — 2FA](/images-manual/2fa.png)
 
 ---
 
@@ -169,7 +157,6 @@ gpg -c archivo_confidencial.pdf
 lsblk           # verificar tipo 'crypt'
 ```
 
-![Evidencia Paso 8 — Cifrado](/images-manual/cifrado.png)
 
 ---
 
@@ -180,7 +167,6 @@ find / -perm -4000 -type f 2>/dev/null    # binarios SUID
 find / -perm -0777 -type f 2>/dev/null    # permisos 777 peligrosos
 ```
 
-![Evidencia Paso 9 — Revisión SUID](/images-manual/revision-suid.png)
 
 ---
 
@@ -191,7 +177,6 @@ sudo apt install lynis -y
 sudo lynis audit system
 ```
 
-![Evidencia Paso 10 — Auditoría Lynis](/images-manual/audit-lynis.png)
 
 ---
 
@@ -203,7 +188,6 @@ sudo systemctl enable --now auditd
 sudo grep "Failed password" /var/log/auth.log
 ```
 
-![Evidencia Paso 11 — Monitoreo y logs](/images-manual/monitoreo.png)
 
 ---
 

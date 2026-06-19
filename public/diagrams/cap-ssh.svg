@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Salida del comando: hardening SSH</title>
+  <desc id="d">Salida simulada de sshd_config endurecido y reinicio del servicio SSH.</desc>
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="720" height="380" fill="#fcefe9"/>
+  <rect x="20" y="20" width="680" height="340" rx="10" fill="#300A24" filter="url(#sh)"/>
+  <g font-size="13">
+    <text x="40" y="56"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">/etc/ssh</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">grep -E "^(Port|Permit|Password|MaxAuth|Allow)" sshd_config</tspan></text>
+    <text x="40" y="78" fill="#e6e6e6"><tspan fill="#C9AEF7">Port</tspan> <tspan fill="#5FD75F">2222</tspan></text>
+    <text x="40" y="96" fill="#e6e6e6"><tspan fill="#C9AEF7">PermitRootLogin</tspan> <tspan fill="#FF6B6B">no</tspan></text>
+    <text x="40" y="114" fill="#e6e6e6"><tspan fill="#C9AEF7">PasswordAuthentication</tspan> <tspan fill="#FF6B6B">no</tspan></text>
+    <text x="40" y="132" fill="#e6e6e6"><tspan fill="#C9AEF7">PermitEmptyPasswords</tspan> <tspan fill="#FF6B6B">no</tspan></text>
+    <text x="40" y="150" fill="#e6e6e6"><tspan fill="#C9AEF7">MaxAuthTries</tspan> <tspan fill="#5FD75F">3</tspan></text>
+    <text x="40" y="168" fill="#e6e6e6"><tspan fill="#C9AEF7">AllowUsers</tspan> <tspan fill="#5FD75F">anthony</tspan></text>
+    <text x="40" y="196"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo systemctl restart ssh &amp;&amp; sudo systemctl status ssh</tspan></text>
+    <text x="40" y="218" fill="#5FD75F">● ssh.service — OpenBSD Secure Shell server</text>
+    <text x="40" y="236" fill="#e6e6e6">     Loaded: loaded (/lib/systemd/system/ssh.service; enabled)</text>
+    <text x="40" y="254" fill="#e6e6e6">     Active: <tspan fill="#5FD75F">active (running)</tspan> since Fri 2026-06-19 14:32 UTC</text>
+    <text x="40" y="272" fill="#e6e6e6">   Main PID: 2841 (sshd)</text>
+    <text x="40" y="298"><tspan fill="#5FD75F" font-weight="700">anthony@cliente</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">ssh -i ~/.ssh/id_ed25519 -p 2222 anthony@10.0.0.12</tspan></text>
+    <text x="40" y="316" fill="#e6e6e6">Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)</text>
+    <text x="40" y="334" fill="#e6e6e6">Last login: Fri Jun 19 14:30:12 2026 from 10.0.0.55</text>
+    <text x="40" y="352"><tspan fill="#5FD75F" font-weight="700">anthony@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">█</tspan></text>
+  </g>
+</svg>

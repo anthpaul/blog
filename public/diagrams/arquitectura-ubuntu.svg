@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc" font-family="'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <title id="title">Arquitectura de seguridad de Ubuntu en capas</title>
+  <desc id="desc">Diagrama de las cinco capas concéntricas que componen la defensa en profundidad de Ubuntu: hardware/arranque seguro, kernel, control de acceso obligatorio (AppArmor), espacio de usuario (POSIX y sudo) y aplicaciones en sandbox.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fcefe9"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="l1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b1228"/>
+      <stop offset="1" stop-color="#77216F"/>
+    </linearGradient>
+    <linearGradient id="l2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#77216F"/>
+      <stop offset="1" stop-color="#a13b94"/>
+    </linearGradient>
+    <linearGradient id="l3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c04010"/>
+      <stop offset="1" stop-color="#E95420"/>
+    </linearGradient>
+    <linearGradient id="l4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E95420"/>
+      <stop offset="1" stop-color="#f37749"/>
+    </linearGradient>
+    <linearGradient id="l5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9b18a"/>
+      <stop offset="1" stop-color="#fcd6c0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="720" height="520" fill="url(#bg)"/>
+
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1f1f24" letter-spacing="-0.3">
+    Arquitectura de seguridad de Ubuntu
+  </text>
+  <text x="360" y="58" text-anchor="middle" font-size="12" fill="#5b5b66">
+    Defensa en profundidad: cinco capas concéntricas
+  </text>
+
+  <!-- Layer 1: Apps (outer) -->
+  <rect x="60" y="80" width="600" height="80" rx="14" fill="url(#l5)" filter="url(#shadow)"/>
+  <text x="80" y="110" font-size="14" font-weight="700" fill="#5a2106">1 · Aplicaciones</text>
+  <text x="80" y="130" font-size="12" fill="#3d1a08">Snap · Flatpak · navegadores · servicios</text>
+  <text x="80" y="148" font-size="11" fill="#6a3a22" font-style="italic">Sandboxing por aplicación</text>
+  <g transform="translate(560,118)">
+    <rect x="-44" y="-22" width="88" height="44" rx="8" fill="#ffffff" opacity="0.85"/>
+    <text x="0" y="-2" text-anchor="middle" font-size="10" font-weight="700" fill="#5a2106">Snap</text>
+    <text x="0" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#5a2106">Flatpak</text>
+  </g>
+
+  <!-- Layer 2: User space -->
+  <rect x="90" y="170" width="540" height="76" rx="13" fill="url(#l4)" filter="url(#shadow)"/>
+  <text x="110" y="198" font-size="14" font-weight="700" fill="#ffffff">2 · Espacio de usuario</text>
+  <text x="110" y="217" font-size="12" fill="#fff2ea">Procesos, librerías (glibc), servicios del sistema</text>
+  <text x="110" y="234" font-size="11" fill="#ffe2cd" font-style="italic">Permisos POSIX (DAC) · sudo · PAM</text>
+  <g transform="translate(560,208)">
+    <rect x="-44" y="-22" width="88" height="44" rx="8" fill="#ffffff" opacity="0.92"/>
+    <text x="0" y="-2" text-anchor="middle" font-size="10" font-weight="700" fill="#c04010">POSIX</text>
+    <text x="0" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#c04010">sudo · PAM</text>
+  </g>
+
+  <!-- Layer 3: MAC -->
+  <rect x="120" y="256" width="480" height="68" rx="12" fill="url(#l3)" filter="url(#shadow)"/>
+  <text x="140" y="282" font-size="14" font-weight="700" fill="#ffffff">3 · Control de acceso obligatorio (MAC)</text>
+  <text x="140" y="300" font-size="12" fill="#ffe2d4">AppArmor · perfiles · SELinux (opcional)</text>
+  <text x="140" y="316" font-size="11" fill="#ffd1ba" font-style="italic">Restringe procesos aunque sean root</text>
+  <g transform="translate(540,290)">
+    <rect x="-44" y="-20" width="88" height="40" rx="8" fill="#ffffff" opacity="0.92"/>
+    <text x="0" y="0" text-anchor="middle" font-size="10" font-weight="700" fill="#c04010">AppArmor</text>
+    <text x="0" y="14" text-anchor="middle" font-size="9" fill="#77216F">aa-status</text>
+  </g>
+
+  <!-- Layer 4: Kernel -->
+  <rect x="150" y="334" width="420" height="68" rx="12" fill="url(#l2)" filter="url(#shadow)"/>
+  <text x="170" y="360" font-size="14" font-weight="700" fill="#ffffff">4 · Kernel Linux</text>
+  <text x="170" y="378" font-size="12" fill="#f3dcef">Syscalls · namespaces · cgroups · LSM</text>
+  <text x="170" y="394" font-size="11" fill="#e9c7e3" font-style="italic">Ring 0 · separación usuario/kernel</text>
+  <g transform="translate(510,368)">
+    <rect x="-44" y="-20" width="88" height="40" rx="8" fill="#ffffff" opacity="0.92"/>
+    <text x="0" y="0" text-anchor="middle" font-size="10" font-weight="700" fill="#77216F">Ring 0</text>
+    <text x="0" y="14" text-anchor="middle" font-size="9" fill="#c04010">syscalls</text>
+  </g>
+
+  <!-- Layer 5: Hardware -->
+  <rect x="180" y="412" width="360" height="68" rx="12" fill="url(#l1)" filter="url(#shadow)"/>
+  <text x="200" y="438" font-size="14" font-weight="700" fill="#ffffff">5 · Hardware y arranque seguro</text>
+  <text x="200" y="456" font-size="12" fill="#e6d6e3">UEFI · Secure Boot · GRUB</text>
+  <text x="200" y="472" font-size="11" fill="#c9b2c4" font-style="italic">LUKS (cifrado de disco completo)</text>
+  <g transform="translate(490,446)">
+    <rect x="-40" y="-20" width="80" height="40" rx="8" fill="#ffffff" opacity="0.92"/>
+    <text x="0" y="0" text-anchor="middle" font-size="10" font-weight="700" fill="#77216F">UEFI</text>
+    <text x="0" y="14" text-anchor="middle" font-size="9" fill="#c04010">LUKS</text>
+  </g>
+
+  <!-- side arrow indicating attack surface direction -->
+  <g transform="translate(28,260)">
+    <line x1="0" y1="-160" x2="0" y2="200" stroke="#77216F" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <polygon points="0,-160 -4,-152 4,-152" fill="#77216F"/>
+    <text x="-6" y="-22" font-size="10" fill="#77216F" transform="rotate(-90 -6 -22)" text-anchor="middle">Mayor exposición</text>
+    <text x="-6" y="158" font-size="10" fill="#77216F" transform="rotate(-90 -6 158)" text-anchor="middle">Mayor privilegio</text>
+  </g>
+
+  <text x="360" y="504" text-anchor="middle" font-size="10" fill="#5b5b66">
+    Si una capa cae, las restantes contienen el daño. Fuente: elaboración propia, basado en Ubuntu Security Docs y NIST SP 800-123.
+  </text>
+</svg>

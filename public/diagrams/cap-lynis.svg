@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Captura: auditoría con Lynis</title>
+  <desc id="d">Terminal Ubuntu GNOME mostrando lynis audit system con Hardening index 84/100.</desc>
+  <defs>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".22"/></filter>
+    <clipPath id="rc"><rect x="20" y="20" width="680" height="420" rx="10"/></clipPath>
+  </defs>
+  <rect width="720" height="460" fill="#fcefe9"/>
+  <g filter="url(#sh)" clip-path="url(#rc)">
+    <rect x="20" y="20" width="680" height="420" fill="#300A24"/>
+    <rect x="20" y="20" width="680" height="38" fill="#2C001E"/>
+    <text x="360" y="44" text-anchor="middle" font-size="12" fill="#e6e6e6">ubuntu@ubuntu: ~</text>
+    <g transform="translate(620,29)" fill="none" stroke="#cfcfd6" stroke-width="1.4">
+      <circle cx="0" cy="10" r="9" fill="#3c0e2c"/><line x1="-4" y1="10" x2="4" y2="10"/>
+      <circle cx="24" cy="10" r="9" fill="#3c0e2c"/><rect x="20" y="6" width="8" height="8"/>
+      <circle cx="48" cy="10" r="9" fill="#3c0e2c"/><line x1="44" y1="6" x2="52" y2="14"/><line x1="52" y1="6" x2="44" y2="14"/>
+    </g>
+    <rect x="20" y="58" width="680" height="28" fill="#3c0e2c"/>
+    <rect x="32" y="60" width="280" height="26" rx="3" fill="#300A24"/>
+    <text x="44" y="78" font-size="11" fill="#e6e6e6">ubuntu@ubuntu: ~ — lynis audit</text>
+    <text x="298" y="78" font-size="11" fill="#9a8b94">×</text>
+  </g>
+  <g font-size="13" clip-path="url(#rc)">
+    <text x="38" y="112"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo lynis audit system</tspan></text>
+    <text x="38" y="134" fill="#F7C97E">[ Lynis 3.0.9 ]</text>
+    <text x="38" y="152" fill="#e6e6e6">################################################################</text>
+    <text x="38" y="170" fill="#e6e6e6">  Lynis — Security auditing tool for Linux/Unix systems</text>
+    <text x="38" y="188" fill="#e6e6e6">################################################################</text>
+    <text x="38" y="216" fill="#5FD75F">[+] System tools          [ DONE ]</text>
+    <text x="38" y="234" fill="#5FD75F">[+] Boot and services     [ DONE ]</text>
+    <text x="38" y="252" fill="#5FD75F">[+] Kernel                [ DONE ]</text>
+    <text x="38" y="270" fill="#5FD75F">[+] Memory and processes  [ DONE ]</text>
+    <text x="38" y="288" fill="#5FD75F">[+] Users, groups, auth   [ DONE ]</text>
+    <text x="38" y="306" fill="#5FD75F">[+] SSH support           [ DONE ]</text>
+    <text x="38" y="324" fill="#5FD75F">[+] Firewalls             [ DONE ]</text>
+    <text x="38" y="350" fill="#F7C97E">  Warnings (3):</text>
+    <text x="38" y="368" fill="#e6e6e6">  ! AUTH-9286  Configure password aging limits</text>
+    <text x="38" y="384" fill="#e6e6e6">  ! BANN-7126  Add a legal banner to /etc/issue</text>
+    <text x="38" y="400" fill="#e6e6e6">  ! KRNL-5820  Reboot required after kernel upgrade</text>
+    <text x="38" y="428" fill="#e6e6e6">Tests performed: 232 · Plugins enabled: 0 · Time: 38s</text>
+  </g>
+  <g transform="translate(560,220)">
+    <rect x="-70" y="-12" width="140" height="130" rx="10" fill="#1a1a20" stroke="#E95420" stroke-width="2"/>
+    <text x="0" y="14" text-anchor="middle" font-size="11" fill="#F7C97E">Hardening index</text>
+    <text x="0" y="64" text-anchor="middle" font-size="38" font-weight="700" fill="#E95420">84</text>
+    <text x="0" y="86" text-anchor="middle" font-size="11" fill="#cfcfd6">/ 100</text>
+    <text x="0" y="106" text-anchor="middle" font-size="10" fill="#5FD75F">▲ +29 desde la línea base</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Salida del comando: gestión de usuarios</title>
+  <desc id="d">Salida simulada de adduser, usermod -aG sudo y getent group sudo.</desc>
+  <defs>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="110%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="720" height="360" fill="#fcefe9"/>
+  <rect x="20" y="20" width="680" height="320" rx="10" fill="#300A24" filter="url(#sh)"/>
+  <g font-size="13">
+    <text x="40" y="56"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo adduser carlos</tspan></text>
+    <text x="40" y="76" fill="#e6e6e6">info: Adding user `carlos' ...</text>
+    <text x="40" y="92" fill="#e6e6e6">info: Selecting UID/GID from range 1000 to 59999 ...</text>
+    <text x="40" y="108" fill="#e6e6e6">info: Adding new user `carlos' (1001) with group `carlos' (1001) ...</text>
+    <text x="40" y="124" fill="#e6e6e6">info: Creating home directory `/home/carlos' ...</text>
+    <text x="40" y="140" fill="#5FD75F">Adding new user `carlos' to supplemental / extra groups `users' ...</text>
+    <text x="40" y="166"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo usermod -aG sudo carlos</tspan></text>
+    <text x="40" y="190"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">getent group sudo</tspan></text>
+    <text x="40" y="210" fill="#F7C97E">sudo:x:27:<tspan fill="#5FD75F">anthony,carlos</tspan></text>
+    <text x="40" y="234"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">cut -d: -f1 /etc/passwd | tail -6</tspan></text>
+    <text x="40" y="254" fill="#e6e6e6">systemd-resolve</text>
+    <text x="40" y="270" fill="#e6e6e6">messagebus</text>
+    <text x="40" y="286" fill="#e6e6e6">sshd</text>
+    <text x="40" y="302" fill="#e6e6e6">anthony</text>
+    <text x="40" y="318" fill="#e6e6e6">carlos</text>
+    <text x="40" y="334"><tspan fill="#5FD75F" font-weight="700">ubuntu@ubuntu</tspan><tspan fill="#ffffff">:</tspan><tspan fill="#5FB4F3" font-weight="700">~</tspan><tspan fill="#ffffff">$ </tspan><tspan fill="#ffffff">sudo usermod -L invitado   </tspan><tspan fill="#9a8b94"># bloquea cuenta inactiva</tspan></text>
+  </g>
+</svg>

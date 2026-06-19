@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Captura: estado del firewall UFW</title>
+  <desc id="d">Salida simulada del comando sudo ufw status verbose mostrando reglas activas.</desc>
+  <defs><filter id="sh" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".25"/></filter></defs>
+  <rect width="720" height="400" fill="#fcefe9"/>
+  <g filter="url(#sh)">
+    <rect x="20" y="20" width="680" height="360" rx="10" fill="#0f0f14"/>
+    <rect x="20" y="20" width="680" height="34" rx="10" fill="#1a1a20"/>
+    <rect x="20" y="44" width="680" height="10" fill="#1a1a20"/>
+    <circle cx="42" cy="37" r="6" fill="#ff5f57"/>
+    <circle cx="62" cy="37" r="6" fill="#febc2e"/>
+    <circle cx="82" cy="37" r="6" fill="#28c840"/>
+    <text x="360" y="41" text-anchor="middle" font-size="11" fill="#6b7280">anthony@ubuntu: ~ — ufw</text>
+  </g>
+  <g font-size="13">
+    <text x="40" y="80"><tspan fill="#92d37f">anthony@ubuntu</tspan><tspan fill="#e6e6e6">:</tspan><tspan fill="#7aa6da">~</tspan><tspan fill="#e6e6e6">$ </tspan><tspan fill="#ffffff">sudo ufw status verbose</tspan></text>
+    <text x="40" y="104" fill="#f7c97e">Status: <tspan fill="#92d37f">active</tspan></text>
+    <text x="40" y="124" fill="#cfcfd6">Logging: on (low)</text>
+    <text x="40" y="142" fill="#cfcfd6">Default: <tspan fill="#f06d6d">deny (incoming)</tspan>, <tspan fill="#92d37f">allow (outgoing)</tspan>, <tspan fill="#f06d6d">disabled (routed)</tspan></text>
+    <text x="40" y="160" fill="#cfcfd6">New profiles: skip</text>
+    <text x="40" y="190" fill="#e6e6e6">To                         Action      From</text>
+    <text x="40" y="206" fill="#6b7280">--                         ------      ----</text>
+    <text x="40" y="226" fill="#cfcfd6">22/tcp                     <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere</text>
+    <text x="40" y="244" fill="#cfcfd6">80/tcp                     <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere</text>
+    <text x="40" y="262" fill="#cfcfd6">443/tcp                    <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere</text>
+    <text x="40" y="280" fill="#cfcfd6">22/tcp (v6)                <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere (v6)</text>
+    <text x="40" y="298" fill="#cfcfd6">80/tcp (v6)                <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere (v6)</text>
+    <text x="40" y="316" fill="#cfcfd6">443/tcp (v6)               <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere (v6)</text>
+    <text x="40" y="344"><tspan fill="#92d37f">anthony@ubuntu</tspan><tspan fill="#e6e6e6">:</tspan><tspan fill="#7aa6da">~</tspan><tspan fill="#e6e6e6">$ </tspan><tspan fill="#ffffff">sudo ufw status numbered</tspan></text>
+    <text x="40" y="362" fill="#cfcfd6">[ 1] 22/tcp     <tspan fill="#92d37f">ALLOW IN</tspan>    Anywhere</text>
+  </g>
+</svg>

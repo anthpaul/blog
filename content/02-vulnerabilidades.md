@@ -113,6 +113,54 @@ La conclusión de esta comparación es positiva para Ubuntu: aunque los fallos e
 
 ---
 
+## 6. Herramientas de auditoría y detección en Ubuntu
+
+Detectar a tiempo si un sistema está comprometido o mal configurado es tan importante como prevenirlo. En Ubuntu, el ecosistema ofrece **tres herramientas gratuitas y complementarias** que conviene incluir en cualquier proceso de auditoría: **Lynis**, **chkrootkit** y **rkhunter**. Cada una cubre un ángulo distinto.
+
+### Lynis — auditoría de configuración
+
+`Lynis` es la herramienta de referencia para auditar la **postura de seguridad** del sistema: revisa cientos de controles (kernel, SSH, firewall, parches, permisos) y entrega un *Hardening index* de 0 a 100 con sugerencias accionables. Es ideal para medir **antes y después** del hardening.
+
+```bash
+sudo apt install lynis -y
+sudo lynis audit system
+sudo lynis show details TEST-ID   # detalle de un control específico
+```
+
+### chkrootkit — verificación de rootkits conocidos
+
+`chkrootkit` analiza el sistema buscando **firmas de rootkits conocidos**, binarios alterados (login, ps, ls, netstat), interfaces de red en modo promiscuo y entradas sospechosas en logs. Es rápido y útil como primer chequeo tras detectar un comportamiento extraño.
+
+```bash
+sudo apt install chkrootkit -y
+sudo chkrootkit
+```
+
+Salidas típicas como `INFECTED` deben investigarse de inmediato; los `not found` indican que la firma no coincide en este sistema.
+
+### rkhunter — detección heurística y de integridad
+
+`rkhunter` (*Rootkit Hunter*) complementa a chkrootkit con un enfoque más amplio: además de firmas, verifica **integridad de binarios del sistema** mediante hashes, busca **archivos ocultos**, **puertos abiertos sospechosos** y configuraciones inseguras. Conviene ejecutarlo periódicamente y tras cada actualización mayor.
+
+```bash
+sudo apt install rkhunter -y
+sudo rkhunter --update          # actualizar firmas
+sudo rkhunter --propupd         # registrar línea base de hashes
+sudo rkhunter --check --sk      # análisis completo
+```
+
+### Cuándo usar cada una
+
+| Herramienta | Enfoque | Cuándo ejecutarla |
+|-------------|---------|-------------------|
+| **Lynis** | Configuración / hardening | Antes y después del endurecimiento, mensualmente |
+| **chkrootkit** | Firmas de rootkits conocidos | Ante sospecha de compromiso, semanalmente |
+| **rkhunter** | Integridad + heurística | Tras parches del kernel, semanalmente |
+
+> [TIP] **Buena práctica:** automatiza estas tres herramientas con `cron` y envía los reportes por correo. Una auditoría no leída no sirve para nada.
+
+---
+
 ## Conclusión
 
 Ubuntu enfrenta vulnerabilidades de escalada de privilegios, ejecución de código y denegación de servicio, muchas de ellas alojadas durante años en componentes privilegiados como `sudo`, `polkit` y el propio kernel. El análisis de riesgos demuestra que las amenazas más probables (fuerza bruta SSH, software desactualizado) son también las más fáciles de mitigar. La defensa no consiste en "esperar a no ser vulnerable", sino en **reducir la superficie de ataque y aplicar parches a tiempo**, que es justo lo que cubriremos en la entrada de hardening.
@@ -127,3 +175,6 @@ Ubuntu enfrenta vulnerabilidades de escalada de privilegios, ejecución de códi
 - Cybersecurity and Infrastructure Security Agency. (2025). *Known Exploited Vulnerabilities Catalog*. https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 - Kumar, A. (2025). *Linux Kernel Vulnerabilities Exploited in 2025: CISA KEV Insights*. LinuxSecurity. https://linuxsecurity.com/
 - National Institute of Standards and Technology. (2012). *Guide for Conducting Risk Assessments* (NIST SP 800-30 Rev. 1). https://csrc.nist.gov/
+- Boelen, M. (2024). *Lynis — Security auditing tool for Linux, macOS and Unix-based systems*. CISOfy. https://cisofy.com/lynis/
+- Murilo, N., & Steding-Jessen, K. (2017). *chkrootkit — locally checks for signs of a rootkit*. http://www.chkrootkit.org/
+- Boelen, M. (2018). *The Rootkit Hunter project (rkhunter)*. https://rkhunter.sourceforge.net/

@@ -18,6 +18,8 @@ A diferencia de la idea popular de que "Linux no necesita seguridad", la realida
 
 La seguridad en Ubuntu se organiza en **capas concéntricas**, donde cada capa protege a la siguiente. Si una falla, las demás siguen conteniendo el daño.
 
+![Diagrama de la arquitectura de seguridad de Ubuntu en cinco capas: hardware/UEFI, kernel, AppArmor (MAC), espacio de usuario (POSIX y sudo) y aplicaciones (Snap/Flatpak)](/diagrams/arquitectura-ubuntu.svg)
+
 | Capa | Componentes | Mecanismo de seguridad |
 |------|-------------|------------------------|
 | **Aplicaciones** | Firefox, apps Snap / Flatpak | Sandboxing por app |

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t d" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+  <title id="t">Captura: actualización del sistema</title>
+  <desc id="d">Salida simulada del comando apt update y apt upgrade en Ubuntu.</desc>
+  <defs>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".25"/></filter>
+  </defs>
+  <rect width="720" height="380" fill="#fcefe9"/>
+  <g filter="url(#sh)">
+    <rect x="20" y="20" width="680" height="340" rx="10" fill="#0f0f14"/>
+    <rect x="20" y="20" width="680" height="34" rx="10" fill="#1a1a20"/>
+    <rect x="20" y="44" width="680" height="10" fill="#1a1a20"/>
+    <circle cx="42" cy="37" r="6" fill="#ff5f57"/>
+    <circle cx="62" cy="37" r="6" fill="#febc2e"/>
+    <circle cx="82" cy="37" r="6" fill="#28c840"/>
+    <text x="360" y="41" text-anchor="middle" font-size="11" fill="#6b7280">anthony@ubuntu: ~ — apt</text>
+  </g>
+  <g font-size="13" font-family="'Ubuntu Mono','Menlo','Consolas',monospace">
+    <text x="40" y="80"><tspan fill="#92d37f">anthony@ubuntu</tspan><tspan fill="#e6e6e6">:</tspan><tspan fill="#7aa6da">~</tspan><tspan fill="#e6e6e6">$ </tspan><tspan fill="#ffffff">sudo apt update &amp;&amp; sudo apt upgrade -y</tspan></text>
+    <text x="40" y="102" fill="#cfcfd6">Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease</text>
+    <text x="40" y="120" fill="#cfcfd6">Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]</text>
+    <text x="40" y="138" fill="#cfcfd6">Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [128 kB]</text>
+    <text x="40" y="156" fill="#cfcfd6">Fetched 254 kB in 1s (220 kB/s)</text>
+    <text x="40" y="174" fill="#cfcfd6">Reading package lists... Done</text>
+    <text x="40" y="192" fill="#f7c97e">12 packages can be upgraded. Run 'apt list --upgradable' to see them.</text>
+    <text x="40" y="216" fill="#cfcfd6">The following packages will be upgraded:</text>
+    <text x="40" y="234" fill="#92d37f">  linux-image-generic openssl libssl3 sudo policykit-1 curl ...</text>
+    <text x="40" y="252" fill="#cfcfd6">12 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</text>
+    <text x="40" y="270" fill="#cfcfd6">Need to get 86.4 MB of archives.</text>
+    <text x="40" y="288" fill="#cfcfd6">After this operation, 1,234 kB of additional disk space will be used.</text>
+    <text x="40" y="312"><tspan fill="#92d37f">anthony@ubuntu</tspan><tspan fill="#e6e6e6">:</tspan><tspan fill="#7aa6da">~</tspan><tspan fill="#e6e6e6">$ </tspan><tspan fill="#ffffff">sudo systemctl status unattended-upgrades</tspan></text>
+    <text x="40" y="330" fill="#92d37f">● unattended-upgrades.service — Unattended Upgrades Shutdown</text>
+    <text x="40" y="348" fill="#cfcfd6">     Active: <tspan fill="#92d37f">active (running)</tspan> since Fri 2026-06-19 08:14 UTC</text>
+  </g>
+</svg>
