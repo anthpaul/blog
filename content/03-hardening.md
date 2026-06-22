@@ -103,7 +103,7 @@ Aplicar cambios:
 sudo systemctl restart ssh
 ```
 
-![Captura simulada — sshd_config endurecido, servicio reiniciado y login por llave ed25519](/diagrams/cap-ssh.svg)
+![Captura real — sshd_config endurecido, servicio reiniciado y login por llave ed25519](/images-manual/hardening.png)
 
 ### Autenticación por llave SSH (más segura que contraseña)
 
@@ -127,7 +127,7 @@ sudo systemctl enable --now fail2ban
 sudo fail2ban-client status sshd
 ```
 
-![Captura simulada — fail2ban-client status sshd con 3 IPs baneadas](/diagrams/cap-fail2ban.svg)
+![Captura real — fail2ban-client status sshd con IP baneada y consulta a la base sqlite](/images-manual/fail2ban.png)
 
 ---
 
